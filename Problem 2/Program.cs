@@ -10,21 +10,26 @@ namespace ConsoleApp3
         {
             int WordsNumber = Convert.ToInt32(Console.ReadLine());
             Dictionary<string, int> archive = new Dictionary<string, int>();
- 
-            for (int i = 0; i < WordsNumber; i++)
-            {
-                string a = Console.ReadLine();
-                if (archive.ContainsKey(a))
+
+            #region Cycle
+
+                for (int i = 0; i < WordsNumber; i++)
                 {
-                    Console.WriteLine($"{a}{archive[a]}");
-                    archive[a] += 1;
+                    string a = Console.ReadLine();
+                    if (archive.ContainsKey(a))
+                    {
+                        Console.WriteLine($"{a}{archive[a]}");
+                        archive[a] += 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("OK");
+                        archive[a] = 1;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("OK");
-                    archive[a] = 1;
-                }
-            }
+
+            #endregion
+            
         }
     }
 }
